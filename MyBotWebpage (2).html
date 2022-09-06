@@ -1,0 +1,132 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+</head>
+<style>
+  .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+</style>
+
+</br></br></br></br></br></br>
+
+<div style="text-align:center;">
+	<button class="unselectable" ontouchstart="up()" ontouchend="off()" style="height:120px;width:120px;"> Up </button>
+</div>
+
+</br>
+
+  <div style="float:left;">
+    <button class="unselectable" ontouchstart="left()" ontouchend="off()" style="height:120px;width:120px;"> Left </button>
+  </div>
+  
+  <div style="float:right;">
+    <button class="unselectable" ontouchstart="right()" ontouchend="off()" style="height:120px;width:120px;"> Right </button>
+  </div>
+  
+  <div style="text-align:center;">
+	  <button class="unselectable" id="toggle" ontouchstart="toggle()" style="height:120px;width:120px;">Fast
+</button>
+  </div>
+  </br>
+
+<div style="text-align:center;">
+        <button class="unselectable" ontouchstart="down()" ontouchend="off()" style="height:120px;width:120px;"> Down </button>                                                    </div>
+
+        <div style="float:left;">
+    <button class="unselectable" ontouchstart="turn_left()" ontouchend="off()" style="height:120px;width:120px;"> TURN LEFT </button>
+</div>
+<div style="float:right;">
+    <button class="unselectable" ontouchstart="turn_right()" ontouchend="off()" style="height:120px;width:120px;"> TURN RIGHT </button>
+</div>
+<div style="text-align:center;">
+    <button class="unselectable" ontouchstart="reset()" ontouchend="off()" style="height:120px;width:120px;"> RESET </button>
+</div>
+<div style="text-align:center;">
+    <button class="unselectable" ontouchstart="set()" ontouchend="off()" style="height:120px;width:120px;"> SET </button>
+</div>
+<div style="float:left;">
+    <button class="unselectable" ontouchstart="increase_left()" ontouchend="off()" style="height:120px;width:120px;"> INC LEFT </button>
+</div>
+<div style="float:right;">
+    <button class="unselectable" ontouchstart="increase_right()" ontouchend="off()" style="height:120px;width:120px;"> INC RIGHT </button>
+</div>
+
+<div style="float:left;">
+    <button class="unselectable" ontouchstart="decrease_left()" ontouchend="off()" style="height:120px;width:120px;"> DEC LEFT </button>
+</div>
+<div style="float:right;">
+    <button class="unselectable" ontouchstart="decrease_right()" ontouchend="off()" style="height:120px;width:120px;"> DEC RIGHT </button>
+</div>
+
+
+<script>
+    var fast = 1;
+    var url = "http://192.168.4.1/control?";
+    function up(){
+        fetch(url+"up")
+    }
+    
+    function down(){
+        fetch(url+"down")
+    }
+    function turn_left(){
+        fetch(url+"Turn_Left")
+    }
+    function turn_right(){
+        fetch(url+"Turn_Right")
+    }
+
+
+    function left(){
+        fetch(url+"left")
+    }
+    
+    function right(){
+        fetch(url+"right")
+    }
+
+    function off(){
+        fetch(url+"off")
+    }
+    function reset(){
+        fetch(url+"reset")
+    }
+    function set(){
+        fetch(url+"set")
+    }
+    function increase_left(){
+        fetch(url+"increase_left")
+    }
+    function increase_right(){
+        fetch(url+"increase_right")
+    }
+    function decrease_left(){
+        fetch(url+"increase_left")
+    }
+    function decrease_right(){
+        fetch(url+"increase_right")
+    }
+
+
+
+    function toggle(){
+        if(fast==1){
+	   fast=0;
+           document.getElementById("toggle").innerHTML="Slow"
+	   fetch(url+"slow");
+	}else{
+           fast=1;                                                    document.getElementById("toggle").innerHTML="Fast"
+           fetch(url+"fast");
+	}
+    }
+</script>
+</body>
+</html>
